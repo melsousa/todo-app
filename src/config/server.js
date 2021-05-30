@@ -1,18 +1,15 @@
-const port = 3003;
-const bodyParser = require('body-parser');
-const express = require('express'); //servidor web
-const server = express();
-const allowCors = require('./cors');
+const port = 3002
 
+const express = require('express')
+const server = express()
+const allowCors = require('./cors')
 
-//sempre que chegar uma requisição que a url seja essa (urlencoded) 
-// que é o padrão de formulários, o body-parser vai suportar mais que o padrão
-server.use(bodyParser.urlencoded({extended: true}));
-server.use(bodyParser.json());
-server.use(allowCors);
+server.use(express.urlencoded({ extended: true }))
+server.use(express.json())
+server.use(allowCors)
 
-server.listen(port, function(){ //se ocorrer tudo ok
-    console.log(`BACKEND is running on port ${port}.`);
+server.listen(port, function() {
+    console.log(`BACKEND is running on port ${port}.`)
 })
 
-module.exports  = server
+module.exports = server
